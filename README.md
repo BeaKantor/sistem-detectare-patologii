@@ -43,6 +43,7 @@ Proiectul folosește setul **NIH ChestX-ray14** (112.120 de radiografii) cu etic
 Pe setul de test (25.596 imagini):
 
 | Metrică | Valoare |
+|---|---|
 | AUC-ROC mediu | 0,8947 |
 | Precizie medie | 0,9243 |
 | F1 mediu | 0,6914 |
@@ -52,7 +53,44 @@ Comparația cu setul de antrenament (AUC 0,8950) confirmă că modelul nu sufer�
 Modelul de severitate atinge o acuratețe de 66,07% pe cazurile cu severitate specificată.
 
 
+## Instalare
 
+Se recomandă utilizarea unui mediu virtual.
+
+```bash
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# Linux/Mac:
+source .venv/bin/activate
+```
+
+Instalarea bibliotecilor necesare:
+
+```bash
+pip install torch torchvision
+pip install fastapi uvicorn python-multipart
+pip install opencv-python albumentations
+pip install scikit-learn pandas numpy matplotlib
+pip install mlflow
+```
+
+Pentru rularea pe CPU (fără placă grafică), PyTorch se instalează astfel:
+
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+```
+
+
+## Fișiere neincluse în repository
+
+Din cauza dimensiunilor mari, următoarele nu sunt incluse în repository:
+
+- **Modelele antrenate (`*.pth`)** — fișierele de ponderi ale modelului principal și ale modelului de severitate. Acestea pot fi regenerate prin rularea scripturilor `train.py` și `severity_train.py`.
+- **Imaginile setului de date (`data/images/`)** — cele 112.120 de radiografii din setul NIH ChestX-ray14, disponibile public pe site-ul oficial NIH.
+- **Fișierele de etichete și baza de date MLflow** — pot fi regenerate din scripturile de procesare.
+
+Pentru a rula proiectul complet, este necesară descărcarea setului NIH ChestX-ray14 și plasarea imaginilor în folderul `data/images/`, urmată de antrenarea modelelor.
 
 
 
