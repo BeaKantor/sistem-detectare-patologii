@@ -33,6 +33,8 @@ Cele două modele funcționează în cascadă: modelul principal detectează pat
 
 Proiectul folosește setul **NIH ChestX-ray14** (112.120 de radiografii) cu etichetele îmbunătățite **MAPLEZ** (Lanfredi et al., 2025), care oferă adnotări de calitate superioară privind prezența, probabilitatea, severitatea și localizarea patologiilor.
 
+Link către setul de date: https://nihcc.app.box.com/v/ChestXray-NIHCC
+
 Împărțirea predefinită a datelor:
 - Antrenament: 78.506 imagini
 - Validare: 8.018 imagini
